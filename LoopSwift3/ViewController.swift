@@ -18,12 +18,15 @@ class ViewController: UIViewController {
     @IBAction func show(){
         // liệt kê tất cả các phần tử view trong subview,nếu view đó là UIImageView thì remove nó khỏi SuperView
         for v in view.subviews {
+            print(v)
             if v.isKind(of: UIImageView.self) {
                 v.removeFromSuperview()
             }
         }
-        let n = Int(textField.text!)
-        drawRowOfBall(n: n!)
+        if let n = Int(textField.text!), n > 0 {
+        drawRowOfBall(n: n)
+        }
+        
     }
     
     override func viewDidLoad() {
